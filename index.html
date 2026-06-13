@@ -136,6 +136,11 @@
       position: absolute; left: 0; top: 160px; width: 4px; height: 80px;
       background: var(--accent); border-radius: 0 4px 4px 0;
     }
+    .hero-avatar {
+      width: 90px; height: 90px; border-radius: 50%; object-fit: cover;
+      border: 3px solid var(--border); margin-bottom: 20px;
+      display: block;
+    }
     .hero-name { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
     .hero-punchline {
       font-size: 16px; color: var(--accent); font-weight: 500;
@@ -241,6 +246,7 @@
       /* Hero */
       #hero { padding: 110px 0 48px; }
       .hero-accent-bar { display: none; }
+      .hero-avatar { width: 72px; height: 72px; margin-bottom: 16px; }
       .hero-name { font-size: 30px; }
       .hero-punchline { font-size: 14px; }
       .hero-title { font-size: 15px; }
@@ -291,6 +297,7 @@
 
       /* Hero */
       #hero { padding: 96px 0 40px; }
+      .hero-avatar { width: 60px; height: 60px; margin-bottom: 14px; }
       .hero-name { font-size: 26px; }
       .hero-punchline { font-size: 13px; }
       .hero-title { font-size: 14px; }
@@ -361,6 +368,7 @@
   <!-- ========== Hero ========== -->
   <header id="hero" class="container">
     <div class="hero-accent-bar"></div>
+    <img class="hero-avatar fade-in" src="avatar.jpg" alt="钟旭灿" width="90" height="90">
     <p class="hero-punchline fade-in">数据驱动决策 &times; 端到端分析能力</p>
     <h1 class="hero-name fade-in">钟旭灿</h1>
     <p class="hero-title fade-in">数据分析 · 大数据 · 商业智能</p>
