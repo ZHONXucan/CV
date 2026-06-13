@@ -136,10 +136,13 @@
       position: absolute; left: 0; top: 160px; width: 4px; height: 80px;
       background: var(--accent); border-radius: 0 4px 4px 0;
     }
+    .hero-row {
+      display: flex; align-items: flex-start; gap: 40px;
+    }
+    .hero-text { flex: 1; min-width: 0; }
     .hero-avatar {
-      width: 90px; height: 90px; border-radius: 50%; object-fit: cover;
-      border: 3px solid var(--border); margin-bottom: 20px;
-      display: block;
+      width: 130px; height: auto; border-radius: 6px;
+      border: 1px solid var(--border); flex-shrink: 0;
     }
     .hero-name { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
     .hero-punchline {
@@ -246,7 +249,8 @@
       /* Hero */
       #hero { padding: 110px 0 48px; }
       .hero-accent-bar { display: none; }
-      .hero-avatar { width: 72px; height: 72px; margin-bottom: 16px; }
+      .hero-row { flex-direction: column; gap: 20px; }
+      .hero-avatar { width: 100px; }
       .hero-name { font-size: 30px; }
       .hero-punchline { font-size: 14px; }
       .hero-title { font-size: 15px; }
@@ -297,7 +301,8 @@
 
       /* Hero */
       #hero { padding: 96px 0 40px; }
-      .hero-avatar { width: 60px; height: 60px; margin-bottom: 14px; }
+      .hero-row { gap: 16px; }
+      .hero-avatar { width: 80px; }
       .hero-name { font-size: 26px; }
       .hero-punchline { font-size: 13px; }
       .hero-title { font-size: 14px; }
@@ -368,13 +373,17 @@
   <!-- ========== Hero ========== -->
   <header id="hero" class="container">
     <div class="hero-accent-bar"></div>
-    <img class="hero-avatar fade-in" src="avatar.jpg" alt="钟旭灿" width="90" height="90">
-    <p class="hero-punchline fade-in">数据驱动决策 &times; 端到端分析能力</p>
-    <h1 class="hero-name fade-in">钟旭灿</h1>
-    <p class="hero-title fade-in">数据分析 · 大数据 · 商业智能</p>
-    <p class="hero-tagline fade-in">
-      ESIGELEC 大数据数字化转型硕士在读。热爱从数据中发现洞察，擅长用 Python 和 BI 工具将复杂数据转化为清晰的决策支持。
-    </p>
+    <div class="hero-row">
+      <div class="hero-text">
+        <p class="hero-punchline fade-in">数据驱动决策 &times; 端到端分析能力</p>
+        <h1 class="hero-name fade-in">钟旭灿</h1>
+        <p class="hero-title fade-in">数据分析 · 大数据 · 商业智能</p>
+        <p class="hero-tagline fade-in">
+          ESIGELEC 大数据数字化转型硕士在读。热爱从数据中发现洞察，擅长用 Python 和 BI 工具将复杂数据转化为清晰的决策支持。
+        </p>
+      </div>
+      <img class="hero-avatar fade-in" src="avatar.jpg" alt="钟旭灿">
+    </div>
   </header>
 
   <!-- ========== About ========== -->
