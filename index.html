@@ -228,16 +228,97 @@
     }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-    /* ===== Responsive ===== */
+    /* ===== Responsive: Tablet / Large Phone ===== */
     @media (max-width: 640px) {
-      .hero-name { font-size: 32px; }
-      .hero-title { font-size: 16px; }
-      section { padding: 60px 0; }
-      #hero { padding: 120px 0 60px; }
-      .nav-links { gap: 12px; }
+      .container { padding: 0 20px; }
+
+      /* Nav */
+      .nav-inner { padding: 0 20px; height: 52px; }
+      .nav-brand { font-size: 14px; }
+      .nav-links { gap: 14px; }
       .nav-links a { font-size: 12px; }
-      .contact-list { flex-direction: column; gap: 10px; }
-      .hero-accent-bar { top: 140px; height: 60px; }
+
+      /* Hero */
+      #hero { padding: 110px 0 48px; }
+      .hero-accent-bar { display: none; }
+      .hero-name { font-size: 30px; }
+      .hero-punchline { font-size: 14px; }
+      .hero-title { font-size: 15px; }
+      .hero-tagline { font-size: 14px; line-height: 1.75; }
+
+      /* Sections */
+      section { padding: 52px 0; }
+      h2 { font-size: 12px; margin-bottom: 24px; letter-spacing: 0.12em; }
+      h3 { font-size: 16px; }
+
+      /* About */
+      .about-text { font-size: 14px; line-height: 1.8; }
+      .lang-badge { font-size: 12px; padding: 5px 12px; }
+
+      /* Skills */
+      .skill-category { margin-bottom: 22px; }
+      .skill-cat-title { font-size: 11px; margin-bottom: 10px; }
+      .skill-tag { font-size: 12px; padding: 4px 12px; }
+
+      /* Timeline */
+      .timeline { gap: 24px; }
+      .timeline-item { padding-left: 16px; }
+      .timeline-desc { font-size: 13px; }
+      .stack-tag { font-size: 10px; padding: 2px 7px; }
+
+      /* Contact */
+      .contact-list { flex-direction: column; gap: 10px; margin-bottom: 20px; }
+      .contact-list li { font-size: 13px; }
+      .btn-download { width: 100%; justify-content: center; font-size: 14px; padding: 12px 22px; }
+
+      /* Back to top */
+      .back-to-top { bottom: 18px; right: 18px; width: 36px; height: 36px; font-size: 16px; }
+
+      /* Footer */
+      footer { padding: 32px 0 48px; }
+    }
+
+    /* ===== Responsive: Small Phone ===== */
+    @media (max-width: 400px) {
+      .container { padding: 0 16px; }
+
+      /* Nav */
+      .nav-inner { padding: 0 16px; }
+      .nav-brand { font-size: 13px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 11px; }
+      .btn-theme { font-size: 12px; padding: 3px 6px; }
+
+      /* Hero */
+      #hero { padding: 96px 0 40px; }
+      .hero-name { font-size: 26px; }
+      .hero-punchline { font-size: 13px; }
+      .hero-title { font-size: 14px; }
+      .hero-tagline { font-size: 13px; }
+
+      /* Sections */
+      section { padding: 44px 0; }
+      h2 { margin-bottom: 20px; }
+      h3 { font-size: 15px; }
+
+      /* About */
+      .about-text { font-size: 13px; }
+      .lang-badges { gap: 6px; }
+      .lang-badge { font-size: 11px; padding: 4px 10px; }
+
+      /* Skills */
+      .skill-category { margin-bottom: 18px; }
+      .skills-grid { gap: 6px; }
+      .skill-tag { font-size: 11px; padding: 3px 10px; }
+
+      /* Timeline */
+      .timeline { gap: 20px; }
+      .timeline-item { padding-left: 14px; }
+      .timeline-period { font-size: 11px; }
+      .timeline-desc { font-size: 12px; }
+
+      /* Contact */
+      .contact-list li { font-size: 12px; }
     }
 
     /* ===== Print ===== */
