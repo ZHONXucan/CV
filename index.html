@@ -399,27 +399,6 @@
   </nav>
   <!-- Page: Home -->
   <section id="page-home" class="page active">
-<body>
-
-  <!-- ========== Sticky Nav ========== -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a href="#home" class="nav-brand" data-nav="home">钟旭灿</a>
-      <ul class="nav-links">
-        <li><a href="#home" data-nav="home">首页</a></li>
-        <li><a href="#cv" data-nav="cv">简历</a></li>
-        <li><a href="#projects" data-nav="projects">项目</a></li>
-        <li><a href="#blog" data-nav="blog">博客</a></li>
-        <li><a href="#contact" data-nav="contact">联系</a></li>
-      </ul>
-      <div class="nav-right">
-        <button class="btn-theme" id="themeToggle" title="切换暗色模式" aria-label="切换暗色模式">
-          <span class="theme-light-icon">🌙</span>
-          <span class="theme-dark-icon">☀️</span>
-        </button>
-      </div>
-    </div>
-  </nav>
 
   <!-- ========== Hero ========== -->
   <header id="hero" class="container">
@@ -864,12 +843,6 @@
       });
 
       document.body.addEventListener("click", function(e) {
-        var a = e.target.closest("[data-nav]");
-        if (a) {
-          e.preventDefault();
-          navigate(a.getAttribute("data-nav"));
-          history.pushState(null, "", "#" + a.getAttribute("data-nav"));
-        }
         var postItem = e.target.closest(".post-item");
         if (postItem) {
           e.preventDefault();
