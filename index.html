@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>钟旭灿 | 数据分析·大数据·商业智能</title>
+  <meta name="description" content="钟旭灿 - ESIGELEC 大数据硕士在读，数据分析、大数据与商业智能方向">
+
+  <!-- Open Graph / 社交分享 -->
+  <meta property="og:title" content="钟旭灿 | 数据分析·大数据·商业智能">
+  <meta property="og:description" content="ESIGELEC 大数据硕士在读 | 数据分析 | 大数据 | 商业智能">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="zh_CN">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="钟旭灿 | 数据分析·大数据·商业智能">
+  <meta name="twitter:description" content="ESIGELEC 大数据硕士在读 | 数据分析 | 大数据 | 商业智能">
+
+  <!-- JSON-LD 结构化数据 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "钟旭灿",
+    "givenName": "旭灿",
+    "familyName": "钟",
+    "description": "ESIGELEC 大数据数字化转型硕士在读",
+    "email": "2659089223@qq.com",
+    "telephone": "18428106393",
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "ESIGELEC" },
+      { "@type": "CollegeOrUniversity", "name": "电子科技大学成都学院" }
+    ],
+    "knowsAbout": ["数据分析", "大数据", "商业智能", "Python", "SQL", "Hadoop"],
+    "jobTitle": "数据分析 / 大数据 / 商业智能"
+  }
+  </script>
+
+  <style>
+    /* ===== CSS Variables (Light / Dark) ===== */
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-secondary: #555;
+      --text-muted: #888;
+      --border: #e0e0e0;
+      --border-light: #e8e8e8;
+      --card-bg: #fff;
+      --accent: #2563eb;
+      --accent-light: #dbeafe;
+      --accent-hover: #1d4ed8;
+    }
+
+    body.dark {
+      --bg: #0f172a;
+      --text: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --border: #334155;
+      --border-light: #1e293b;
+      --card-bg: #1e293b;
+      --accent-light: #1e3a5f;
+    }
+
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; scroll-padding-top: 70px; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 16px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .container { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+    /* ===== Sticky Nav ===== */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    #navbar.scrolled {
+      border-bottom-color: var(--border-light);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .nav-inner {
+      max-width: 680px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; height: 56px;
+    }
+    .nav-brand {
+      font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 20px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; color: var(--text-muted); text-decoration: none; border: none;
+      transition: color 0.2s; padding: 4px 0;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .btn-theme {
+      background: none; border: 1px solid var(--border); border-radius: 8px;
+      color: var(--text-muted); cursor: pointer; font-size: 14px; padding: 4px 8px;
+      transition: border-color 0.2s, color 0.2s; line-height: 1;
+    }
+    .btn-theme:hover { border-color: var(--accent); color: var(--accent); }
+    body:not(.dark) .theme-dark-icon, body.dark .theme-light-icon { display: none; }
+
+    /* ===== Section ===== */
+    section { padding: 80px 0; }
+    section + section { border-top: 1px solid var(--border-light); }
+
+    /* ===== Typography ===== */
+    h2 {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 32px;
+    }
+    h3 { font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+
+    a {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover { border-bottom-color: var(--accent); }
+
+    /* ===== Hero ===== */
+    #hero { padding: 140px 0 80px; position: relative; }
+    .hero-accent-bar {
+      position: absolute; left: 0; top: 160px; width: 4px; height: 80px;
+      background: var(--accent); border-radius: 0 4px 4px 0;
+    }
+    .hero-row {
+      display: flex; align-items: flex-start; gap: 40px;
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero-avatar {
+      width: 130px; height: auto; border-radius: 6px;
+      border: 1px solid var(--border); flex-shrink: 0;
+    }
+    .hero-name { font-size: 42px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 10px; }
+    .hero-punchline {
+      font-size: 16px; color: var(--accent); font-weight: 500;
+      margin-bottom: 8px; letter-spacing: 0.02em;
+    }
+    .hero-title { font-size: 18px; color: var(--text-secondary); font-weight: 400; margin-bottom: 20px; }
+    .hero-tagline {
+      font-size: 15px; color: var(--text-muted); max-width: 480px; line-height: 1.8;
+    }
+
+    /* ===== About ===== */
+    .about-text { font-size: 15px; color: var(--text-secondary); max-width: 560px; line-height: 1.9; }
+    .about-text p + p { margin-top: 14px; }
+    .lang-badges { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    .lang-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; font-size: 13px; font-weight: 500;
+      background: var(--accent-light); color: var(--accent);
+      border-radius: 8px;
+    }
+
+    /* ===== Skills (Categorized) ===== */
+    .skill-category { margin-bottom: 28px; }
+    .skill-category:last-child { margin-bottom: 0; }
+    .skill-cat-title {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 12px;
+    }
+    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tag {
+      display: inline-block; padding: 5px 14px; font-size: 13px;
+      color: var(--text-secondary); background: var(--card-bg);
+      border: 1px solid var(--border); border-radius: 100px;
+      transition: border-color 0.2s, color 0.2s, background 0.2s; cursor: default;
+    }
+    .skill-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+
+    /* ===== Experience Timeline ===== */
+    .timeline { display: flex; flex-direction: column; gap: 32px; }
+    .timeline-item { position: relative; padding-left: 20px; border-left: 1px solid var(--border); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -5px; top: 6px;
+      width: 9px; height: 9px; background: var(--accent); border-radius: 50%;
+    }
+    .timeline-period { font-size: 12px; color: var(--text-muted); margin-bottom: 4px; letter-spacing: 0.05em; }
+    .timeline-desc { font-size: 14px; color: var(--text-secondary); margin-top: 6px; line-height: 1.7; }
+    .timeline-stack {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px;
+    }
+    .stack-tag {
+      font-size: 11px; padding: 2px 8px; border-radius: 4px;
+      background: var(--accent-light); color: var(--accent);
+      font-weight: 500; letter-spacing: 0.02em;
+    }
+
+    /* ===== Contact ===== */
+    .contact-list {
+      display: flex; flex-wrap: wrap; gap: 24px; list-style: none; margin-bottom: 24px;
+    }
+    .contact-list li { font-size: 14px; color: var(--text-secondary); }
+
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 22px; font-size: 14px; font-weight: 500;
+      background: var(--accent); color: #fff; border: none; border-radius: 8px;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-download:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* ===== Footer ===== */
+    footer { padding: 40px 0 60px; text-align: center; font-size: 12px; color: var(--text-muted); }
+
+    /* ===== Back to Top ===== */
+    .back-to-top {
+      position: fixed; bottom: 24px; right: 24px; z-index: 99;
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--card-bg); border: 1px solid var(--border);
+      color: var(--text-muted); font-size: 18px; cursor: pointer;
+      opacity: 0; transform: translateY(10px); pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s, border-color 0.2s, color 0.2s;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ===== Fade-in ===== */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ===== Responsive: Tablet / Large Phone ===== */
+    @media (max-width: 640px) {
+      .container { padding: 0 20px; }
+
+      /* Nav */
+      .nav-inner { padding: 0 20px; height: 52px; }
+      .nav-brand { font-size: 14px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 12px; }
+
+      /* Hero */
+      #hero { padding: 110px 0 48px; }
+      .hero-accent-bar { display: none; }
+      .hero-row { flex-direction: column; gap: 20px; }
+      .hero-avatar { width: 100px; }
+      .hero-name { font-size: 30px; }
+      .hero-punchline { font-size: 14px; }
+      .hero-title { font-size: 15px; }
+      .hero-tagline { font-size: 14px; line-height: 1.75; }
+
+      /* Sections */
+      section { padding: 52px 0; }
+      h2 { font-size: 12px; margin-bottom: 24px; letter-spacing: 0.12em; }
+      h3 { font-size: 16px; }
+
+      /* About */
+      .about-text { font-size: 14px; line-height: 1.8; }
+      .lang-badge { font-size: 12px; padding: 5px 12px; }
+
+      /* Skills */
+      .skill-category { margin-bottom: 22px; }
+      .skill-cat-title { font-size: 11px; margin-bottom: 10px; }
+      .skill-tag { font-size: 12px; padding: 4px 12px; }
+
+      /* Timeline */
+      .timeline { gap: 24px; }
+      .timeline-item { padding-left: 16px; }
+      .timeline-desc { font-size: 13px; }
+      .stack-tag { font-size: 10px; padding: 2px 7px; }
+
+      /* Contact */
+      .contact-list { flex-direction: column; gap: 10px; margin-bottom: 20px; }
+      .contact-list li { font-size: 13px; }
+      .btn-download { width: 100%; justify-content: center; font-size: 14px; padding: 12px 22px; }
+
+      /* Back to top */
+      .back-to-top { bottom: 18px; right: 18px; width: 36px; height: 36px; font-size: 16px; }
+
+      /* Footer */
+      footer { padding: 32px 0 48px; }
+    }
+
+    /* ===== Responsive: Small Phone ===== */
+    @media (max-width: 400px) {
+      .container { padding: 0 16px; }
+
+      /* Nav */
+      .nav-inner { padding: 0 16px; }
+      .nav-brand { font-size: 13px; }
+      .nav-links { gap: 10px; }
+      .nav-links a { font-size: 11px; }
+      .btn-theme { font-size: 12px; padding: 3px 6px; }
+
+      /* Hero */
+      #hero { padding: 96px 0 40px; }
+      .hero-row { gap: 16px; }
+      .hero-avatar { width: 80px; }
+      .hero-name { font-size: 26px; }
+      .hero-punchline { font-size: 13px; }
+      .hero-title { font-size: 14px; }
+      .hero-tagline { font-size: 13px; }
+
+      /* Sections */
+      section { padding: 44px 0; }
+      h2 { margin-bottom: 20px; }
+      h3 { font-size: 15px; }
+
+      /* About */
+      .about-text { font-size: 13px; }
+      .lang-badges { gap: 6px; }
+      .lang-badge { font-size: 11px; padding: 4px 10px; }
+
+      /* Skills */
+      .skill-category { margin-bottom: 18px; }
+      .skills-grid { gap: 6px; }
+      .skill-tag { font-size: 11px; padding: 3px 10px; }
+
+      /* Timeline */
+      .timeline { gap: 20px; }
+      .timeline-item { padding-left: 14px; }
+      .timeline-period { font-size: 11px; }
+      .timeline-desc { font-size: 12px; }
+
+      /* Contact */
+      .contact-list li { font-size: 12px; }
+    }
+
+    ﻿.page { display: none; }
+.page.active { display: block; animation: pageIn 0.35s ease; }
+@keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.post-item { padding: 20px 0; border-bottom: 1px solid var(--border-light); cursor: pointer; }
+.post-item:last-child { border-bottom: none; }
+.post-item:hover h3 { color: var(--accent); }
+.post-item h3 { font-size: 17px; margin-bottom: 6px; transition: color 0.2s; color: var(--text); }
+.post-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.post-excerpt { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-top: 8px; }
+.project-card { padding: 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 20px; transition: border-color 0.2s; }
+.project-card:hover { border-color: var(--accent); }
+.stats-grid { display: flex; gap: 24px; flex-wrap: wrap; margin: 32px 0; }
+.stat-item { text-align: center; }
+.stat-num { font-size: 32px; font-weight: 700; color: var(--accent); }
+.stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.post-content h1, .post-content h2, .post-content h3 { margin-top: 28px; margin-bottom: 12px; }
+.post-content p { margin-bottom: 14px; line-height: 1.8; font-size: 15px; color: var(--text-secondary); }
+.post-content li { margin-bottom: 6px; color: var(--text-secondary); font-size: 15px; }
+.post-content code { background: var(--accent-light); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
+.post-content pre { background: var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:16px; overflow-x:auto; margin:16px 0; }
+.post-content pre code { background:none; padding:0; }
+.post-content blockquote { border-left:3px solid var(--accent); padding-left:16px; color:var(--text-muted); margin:16px 0; }
+.post-content a { color:var(--accent); border-bottom:1px solid var(--accent); }
+.giscus { margin-top:48px; }
+.back-link { display:inline-block; margin-bottom:24px; font-size:13px; color:var(--text-muted); text-decoration:none; border:none; }
+.back-link:hover { color:var(--accent); }
+
+    /* ===== Print ===== */
+    @media print {
+      #navbar, .back-to-top, .btn-theme, .btn-download { display: none !important; }
+      body { background: #fff; color: #000; font-size: 13px; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+      section { padding: 28px 0; break-inside: avoid; }
+      #hero { padding: 20px 0 28px; }
+      .hero-accent-bar { background: #000; }
+      .skill-tag, .stack-tag { border-color: #999; color: #000; background: none; }
+      a { color: #000; border-bottom: none; }
+      .timeline-item { border-left-color: #999; }
+      .timeline-item::before { background: #000; }
+      @page { margin: 1.5cm; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== Sticky Nav ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" data-nav="home">钟旭灿</a>
+      <ul class="nav-links">
+        <li><a href="#home" data-nav="home">首页</a></li>
+        <li><a href="#cv" data-nav="cv">简历</a></li>
+        <li><a href="#projects" data-nav="projects">项目</a></li>
+        <li><a href="#blog" data-nav="blog">博客</a></li>
+        <li><a href="#contact" data-nav="contact">联系</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-theme" id="themeToggle" title="切换暗色模式" aria-label="切换暗色模式">
+          <span class="theme-light-icon">🌙</span>
+          <span class="theme-dark-icon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- Page: Home -->
+  <section id="page-home" class="page active">
+<body>
+
+  <!-- ========== Sticky Nav ========== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-brand" data-nav="home">钟旭灿</a>
+      <ul class="nav-links">
+        <li><a href="#home" data-nav="home">首页</a></li>
+        <li><a href="#cv" data-nav="cv">简历</a></li>
+        <li><a href="#projects" data-nav="projects">项目</a></li>
+        <li><a href="#blog" data-nav="blog">博客</a></li>
+        <li><a href="#contact" data-nav="contact">联系</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="btn-theme" id="themeToggle" title="切换暗色模式" aria-label="切换暗色模式">
+          <span class="theme-light-icon">🌙</span>
+          <span class="theme-dark-icon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== Hero ========== -->
+  <header id="hero" class="container">
+    <div class="hero-accent-bar"></div>
+    <div class="hero-row">
+      <div class="hero-text">
+        <p class="hero-punchline fade-in">数据驱动决策 &times; 端到端分析能力</p>
+        <h1 class="hero-name fade-in">钟旭灿</h1>
+        <p class="hero-title fade-in">数据分析 · 大数据 · 商业智能</p>
+        <p class="hero-tagline fade-in">
+          ESIGELEC 大数据数字化转型硕士在读。热爱从数据中发现洞察，擅长用 Python 和 BI 工具将复杂数据转化为清晰的决策支持。
+        </p>
+      </div>
+      <img class="hero-avatar fade-in" src="avatar.jpg" alt="钟旭灿">
+    </div>
+  </header>
+
+    <!-- Stats -->
+    <section class="container">
+      <div class="stats-grid fade-in">
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">项目作品</div></div>
+        <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">年高等教育</div></div>
+        <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">技术技能</div></div>
+        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">语言 (中/英/法)</div></div>
+      </div>
+    </section>
+
+    <!-- Latest Blog Preview -->
+    <section class="container">
+      <h2 class="fade-in">最新文章</h2>
+      <div class="fade-in" id="latestPosts">
+        <p style="color:var(--text-muted);font-size:14px">加载中...</p>
+      </div>
+      <p style="margin-top:16px">
+        <a href="#blog" data-nav="blog" style="font-size:14px">查看全部文章 →</a>
+      </p>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="container">
+      <h2 class="fade-in">快速导航</h2>
+      <div class="skills-grid fade-in">
+        <a href="#cv" data-nav="cv" class="skill-tag" style="text-decoration:none;border:none">📋 查看简历</a>
+        <a href="#projects" data-nav="projects" class="skill-tag" style="text-decoration:none;border:none">🚀 项目作品</a>
+        <a href="#blog" data-nav="blog" class="skill-tag" style="text-decoration:none;border:none">📝 博客</a>
+        <a href="钟旭灿-简历.pdf" class="skill-tag" style="text-decoration:none;border:none">📄 下载简历</a>
+      </div>
+    </section>
+  </section>
+  <!-- Page: CV -->
+  <section id="page-cv" class="page">
+
+  <!-- ========== About ========== -->
+  <section class="container" id="about">
+    <h2 class="fade-in">关于我</h2>
+    <div class="about-text fade-in">
+      <p>
+        我目前就读于法国鲁昂高等工程师学院（ESIGELEC），攻读大数据数字化转型硕士学位。本科毕业于电子科技大学成都学院，计算机科学与技术专业。具备扎实的计算机基础和丰富的数据分析项目经验。
+      </p>
+      <p>
+        我相信数据驱动的决策力量。从电商用户行为分析到智能物流平台开发，我始终追求用技术解决实际问题。求职意向：数据分析、大数据、商业智能、数据工程。
+      </p>
+      <div class="lang-badges">
+        <span class="lang-badge">🇨🇳 中文（母语）</span>
+        <span class="lang-badge">🇬🇧 英语（熟练）</span>
+        <span class="lang-badge">🇫🇷 法语（学习 / 在法留学）</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Skills ========== -->
+  <section class="container" id="skills">
+    <h2 class="fade-in">技能</h2>
+    <div class="fade-in">
+      <div class="skill-category">
+        <p class="skill-cat-title">数据分析 & 机器学习</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Pandas / NumPy</span>
+          <span class="skill-tag">Scikit-learn</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Matplotlib</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <p class="skill-cat-title">大数据 & 商业智能</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Hadoop</span>
+          <span class="skill-tag">Hive</span>
+          <span class="skill-tag">Spark</span>
+          <span class="skill-tag">Power BI</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Talend</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <p class="skill-cat-title">开发 & 工具</p>
+        <div class="skills-grid">
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Java / C</span>
+          <span class="skill-tag">HTML / CSS / JS</span>
+          <span class="skill-tag">Oracle DB</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Experience ========== -->
+  <section class="container" id="experience">
+    <h2 class="fade-in">经历</h2>
+    <div class="timeline fade-in">
+      <div class="timeline-item">
+        <p class="timeline-period">2026.04 — 2026.06</p>
+        <h3>智能物流数据分析平台 · 项目开发</h3>
+        <div class="timeline-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">RFID</span><span class="stack-tag">Flask</span><span class="stack-tag">Oracle</span>
+        </div>
+        <p class="timeline-desc">
+          基于 RFID 物流数据构建智能分析平台，实现数据处理、预测分析与多模型对比。使用 Python（Pandas, NumPy, Scikit-learn）完成数据清洗与机器学习建模，Flask + Bootstrap 搭建 Web 平台，Oracle Database 管理数据。
+        </p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-period">2025.12 — 2026.02</p>
+        <h3>商业智能（BI）数据分析 · 课程项目</h3>
+        <div class="timeline-stack">
+          <span class="stack-tag">Power BI</span><span class="stack-tag">Power Query</span><span class="stack-tag">Talend</span>
+        </div>
+        <p class="timeline-desc">
+          使用 Power BI 和 Power Query 完成多源数据集成清洗与建模，Talend Open Studio 设计 ETL 流程，开发交互式 BI Dashboard 展示关键业务指标。
+        </p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-period">2024.01 — 2024.03</p>
+        <h3>电商用户行为数据分析 · 个人项目</h3>
+        <div class="timeline-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">MySQL</span><span class="stack-tag">Matplotlib</span>
+        </div>
+        <p class="timeline-desc">
+          清洗模拟电商数据集，使用 SQL 查询复购率、客单价等核心指标，Matplotlib 可视化月度 GMV 趋势与热销品类分布，产出数据分析报告及商品组合营销建议。
+        </p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-period">2024.09 — 2027.07（预计）</p>
+        <h3>大数据数字化转型 · ESIGELEC（硕士）</h3>
+        <p class="timeline-desc">
+          法国鲁昂高等工程师学院。主修：Hadoop 生态系统、数据科学与机器学习、商业智能与数据分析、关系型数据库设计、大规模数据处理（Apache）等。
+        </p>
+      </div>
+      <div class="timeline-item">
+        <p class="timeline-period">2020.09 — 2024.07</p>
+        <h3>计算机科学与技术 · 电子科技大学成都学院（本科）</h3>
+        <p class="timeline-desc">
+          主修：数据结构与算法、数据库系统原理、操作系统、计算机网络、Python / Java / C 程序设计、软件工程等。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Contact ========== -->
+  <section class="container" id="contact">
+    <h2 class="fade-in">联系我</h2>
+    <ul class="contact-list fade-in">
+      <li>📧 <a href="mailto:2659089223@qq.com">2659089223@qq.com</a></li>
+      <li>📱 <a href="tel:18428106393">18428106393</a></li>
+      <li>💻 <a href="https://github.com/ZHONXucan" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+    <p class="fade-in">
+      <a href="钟旭灿-简历.pdf" class="btn-download" download>
+        <span>📄</span> 下载简历 PDF
+      </a>
+    </p>
+  </section>
+
+  <!-- ========== Footer ========== -->
+  <footer>
+    <div class="container">
+      &copy; 2026 钟旭灿 · 保留所有权利
+    </div>
+  
+
+    <!-- Contact info inside CV -->
+    <section class="container" id="contact-cv">
+      <h2 class="fade-in">联系我</h2>
+      <ul class="contact-list fade-in">
+        <li>📧 <a href="mailto:2659089223@qq.com">2659089223@qq.com</a></li>
+        <li>📱 <a href="tel:18428106393">18428106393</a></li>
+        <li>💻 <a href="https://github.com/ZHONXucan" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <p class="fade-in">
+        <a href="钟旭灿-简历.pdf" class="btn-download" download>
+          <span>📄</span> 下载简历 PDF
+        </a>
+      </p>
+    </section>
+  </section>
+  <!-- Page: Projects -->
+  <section id="page-projects" class="page">
+    <header class="container" style="padding:140px 0 40px">
+      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">项目作品</h1>
+      <p style="color:var(--text-muted);margin-top:8px">数据分析 · 商业智能 · 机器学习</p>
+    </header>
+
+    <section class="container">
+      <div class="project-card fade-in">
+        <h3>智能物流数据分析平台</h3>
+        <p class="timeline-period">2026.04 — 2026.06 · 项目开发</p>
+        <div class="timeline-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">RFID</span><span class="stack-tag">Flask</span><span class="stack-tag">Oracle</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Bootstrap</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
+          基于 RFID 物流数据构建智能分析平台，实现数据处理、预测分析与多模型对比。使用 Python（Pandas, NumPy, Scikit-learn）完成数据清洗与机器学习建模（Random Forest、KNN 等），Flask + Bootstrap 搭建 Web 平台，Oracle Database 管理数据存储与查询。
+        </p>
+      </div>
+
+      <div class="project-card fade-in">
+        <h3>商业智能（BI）数据分析</h3>
+        <p class="timeline-period">2025.12 — 2026.02 · 课程项目</p>
+        <div class="timeline-stack">
+          <span class="stack-tag">Power BI</span><span class="stack-tag">Power Query</span><span class="stack-tag">Talend</span><span class="stack-tag">ETL</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
+          使用 Power BI 和 Power Query 对多源数据进行清洗、转换及预处理，建立多表关联模型（维度表与事实表）。基于 Talend Open Studio 设计 ETL 流程实现数据自动化处理，开发交互式 BI Dashboard 展示关键业务指标。
+        </p>
+      </div>
+
+      <div class="project-card fade-in">
+        <h3>电商用户行为数据分析</h3>
+        <p class="timeline-period">2024.01 — 2024.03 · 个人项目</p>
+        <div class="timeline-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">MySQL</span><span class="stack-tag">Matplotlib</span><span class="stack-tag">Pandas</span>
+        </div>
+        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
+          清洗模拟电商数据集，使用 SQL 查询复购率、客单价等核心指标。通过 Matplotlib 制作可视化图表（月度 GMV 趋势、热销品类分布），产出数据分析报告并提出了商品组合营销建议。
+        </p>
+      </div>
+    </section>
+  </section>
+  <!-- Page: Blog -->
+  <section id="page-blog" class="page">
+    <header class="container" style="padding:140px 0 40px">
+      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">博客</h1>
+      <p style="color:var(--text-muted);margin-top:8px">技术分享 · 项目复盘 · 学习笔记</p>
+    </header>
+    <section class="container">
+      <div id="blogList" class="fade-in">
+        <p style="color:var(--text-muted);font-size:14px">加载中...</p>
+      </div>
+    </section>
+  </section>
+  <!-- Page: Blog Post -->
+  <section id="page-post" class="page">
+    <section class="container" style="padding-top:120px">
+      <a href="#blog" data-nav="blog" class="back-link">← 返回博客</a>
+      <div id="postContent" class="post-content"></div>
+      <div class="giscus" id="giscusContainer"></div>
+    </section>
+  </section>
+  <!-- Page: Contact -->
+  <section id="page-contact" class="page">
+    <header class="container" style="padding:140px 0 40px">
+      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">联系我</h1>
+      <p style="color:var(--text-muted);margin-top:8px">期待与您交流</p>
+    </header>
+    <section class="container">
+      <ul class="contact-list fade-in">
+        <li>📧 <a href="mailto:2659089223@qq.com">2659089223@qq.com</a></li>
+        <li>📱 <a href="tel:18428106393">18428106393</a></li>
+        <li>💻 <a href="https://github.com/ZHONXucan" target="_blank" rel="noopener">GitHub</a></li>
+      </ul>
+      <p class="fade-in" style="margin-top:8px">
+        <a href="钟旭灿-简历.pdf" class="btn-download" download>
+          <span>📄</span> 下载简历 PDF
+        </a>
+      </p>
+    </section>
+  </section>
+</footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" title="回到顶部" aria-label="回到顶部">&uarr;</button>
+
+  <script>
+    // ===== 暗色模式 =====
+    const themeToggle = document.getElementById("themeToggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function setDark(enable) {
+      document.body.classList.toggle("dark", enable);
+      localStorage.setItem("theme", enable ? "dark" : "light");
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || (!savedTheme && prefersDark.matches)) {
+      setDark(true);
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => setDark(!document.body.classList.contains("dark")));
+    }
+
+    // ===== Sticky Nav Shadow =====
+    const navbar = document.getElementById("navbar");
+    const sentinel = document.createElement("div");
+    sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;pointer-events:none;";
+    document.body.prepend(sentinel);
+    new IntersectionObserver(
+      ([e]) => navbar.classList.toggle("scrolled", !e.isIntersecting),
+      { threshold: 0 }
+    ).observe(sentinel);
+
+    // ===== Fade-in Animation =====
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".fade-in").forEach(el => io.observe(el));
+
+    // ===== Back to Top =====
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // ===== Active Nav Link =====
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute("id");
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      });
+    });
+  </script>
+
+</body>
+</html>
