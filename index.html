@@ -704,59 +704,187 @@
   <button class="back-to-top" id="backToTop" title="回到顶部" aria-label="回到顶部">&uarr;</button>
 
   <script>
-    // ===== 暗色模式 =====
-    const themeToggle = document.getElementById("themeToggle");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+    (function() {
+      var themeToggle = document.getElementById("themeToggle");
+      var navbar = document.getElementById("navbar");
+      var backToTop = document.getElementById("backToTop");
 
-    function setDark(enable) {
-      document.body.classList.toggle("dark", enable);
-      localStorage.setItem("theme", enable ? "dark" : "light");
-    }
+      // ===== Dark Mode =====
+      function setDark(enable) {
+        document.body.classList.toggle("dark", enable);
+        localStorage.setItem("theme", enable ? "dark" : "light");
+      }
+      var saved = localStorage.getItem("theme");
+      if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        setDark(true);
+      }
+      if (themeToggle) {
+        themeToggle.addEventListener("click", function() {
+          setDark(!document.body.classList.contains("dark"));
+        });
+      }
 
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || (!savedTheme && prefersDark.matches)) {
-      setDark(true);
-    }
+      // ===== Sticky Nav =====
+      var sentinel = document.createElement("div");
+      sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;pointer-events:none;";
+      document.body.prepend(sentinel);
+      new IntersectionObserver(function(_a) {
+        navbar.classList.toggle("scrolled", !_a[0].isIntersecting);
+      }, { threshold: 0 }).observe(sentinel);
 
-    if (themeToggle) {
-      themeToggle.addEventListener("click", () => setDark(!document.body.classList.contains("dark")));
-    }
+      // ===== Fade-in on scroll =====
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
+      }, { threshold: 0.12 });
 
-    // ===== Sticky Nav Shadow =====
-    const navbar = document.getElementById("navbar");
-    const sentinel = document.createElement("div");
-    sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;pointer-events:none;";
-    document.body.prepend(sentinel);
-    new IntersectionObserver(
-      ([e]) => navbar.classList.toggle("scrolled", !e.isIntersecting),
-      { threshold: 0 }
-    ).observe(sentinel);
-
-    // ===== Fade-in Animation =====
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll(".fade-in").forEach(el => io.observe(el));
-
-    // ===== Back to Top =====
-    const backToTop = document.getElementById("backToTop");
-    window.addEventListener("scroll", () => {
-      backToTop.classList.toggle("visible", window.scrollY > 500);
-    });
-    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-    // ===== Active Nav Link =====
-    const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-    window.addEventListener("scroll", () => {
-      let current = "";
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute("id");
+      // ===== Back to Top =====
+      window.addEventListener("scroll", function() {
+        backToTop.classList.toggle("visible", window.scrollY > 500);
       });
-      navLinks.forEach(a => {
-        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
+      backToTop.addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       });
-    });
+
+      // ===== Hash Router =====
+      var pages = document.querySelectorAll(".page");
+      var navLinks = document.querySelectorAll("[data-nav]");
+      var currentPage = "home";
+
+      function navigate(page) {
+        currentPage = page;
+        pages.forEach(function(p) { p.classList.remove("active"); });
+        var target = document.getElementById("page-" + page);
+        if (target) { target.classList.add("active"); window.scrollTo({ top: 0, behavior: "smooth" }); }
+        navLinks.forEach(function(a) {
+          a.classList.toggle("active", a.getAttribute("data-nav") === page);
+        });
+        // Re-observe fade-in elements
+        setTimeout(function() {
+          document.querySelectorAll(".page.active .fade-in").forEach(function(el) { io.observe(el); });
+        }, 50);
+        if (page === "blog") loadBlogList();
+        if (page === "home") loadHomeStats();
+      }
+
+      // ===== Blog Post =====
+      function loadPost(slug) {
+        navigate("post");
+        var container = document.getElementById("postContent");
+        if (!container) return;
+        container.innerHTML = "<p style='color:var(--text-muted)'>加载中...</p>";
+        fetch("posts/" + slug + ".html")
+          .then(function(r) { if (!r.ok) throw new Error("404"); return r.text(); })
+          .then(function(html) {
+            container.innerHTML = html;
+            loadGiscus();
+          })
+          .catch(function() { container.innerHTML = "<p style='color:var(--text-muted)'>文章加载失败</p>"; });
+      }
+
+      function loadGiscus() {
+        var gc = document.getElementById("giscusContainer");
+        if (!gc || gc.hasChildNodes()) return;
+        var s = document.createElement("script");
+        s.src = "https://giscus.app/client.js";
+        s.setAttribute("data-repo", "ZHONXucan/CV");
+        s.setAttribute("data-repo-id", "R_kgDOS5kNVg");
+        s.setAttribute("data-category", "Announcements");
+        s.setAttribute("data-category-id", "DIC_kwDOS5kNVs4C_HOR");
+        s.setAttribute("data-mapping", "pathname");
+        s.setAttribute("data-strict", "0");
+        s.setAttribute("data-reactions-enabled", "1");
+        s.setAttribute("data-emit-metadata", "1");
+        s.setAttribute("data-input-position", "top");
+        s.setAttribute("data-theme", document.body.classList.contains("dark") ? "dark_dimmed" : "light");
+        s.setAttribute("data-lang", "zh-CN");
+        s.setAttribute("data-loading", "lazy");
+        s.setAttribute("crossorigin", "anonymous");
+        s.async = true;
+        gc.appendChild(s);
+      }
+
+      // ===== Blog List =====
+      function loadBlogList() {
+        var container = document.getElementById("blogList");
+        if (!container || container.dataset.loaded) return;
+        container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载中...</p>";
+        fetch("posts/index.json")
+          .then(function(r) { return r.json(); })
+          .then(function(posts) {
+            if (!posts.length) { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>暂无文章</p>"; return; }
+            var html = "";
+            posts.forEach(function(p) {
+              var tagsHtml = "";
+              if (p.tags && p.tags.length) {
+                tagsHtml = '<div class="timeline-stack">' + p.tags.map(function(t) { return '<span class="stack-tag">' + t + '</span>'; }).join("") + '</div>';
+              }
+              html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
+                '<h3>' + p.title + '</h3>' +
+                '<div class="post-meta">' + p.date + '</div>' +
+                tagsHtml +
+                (p.excerpt ? '<div class="post-excerpt">' + p.excerpt + '</div>' : '') +
+                '</div>';
+            });
+            container.innerHTML = html;
+            container.dataset.loaded = "1";
+          })
+          .catch(function() { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载失败，请稍后重试</p>"; });
+      }
+
+      // ===== Home Stats =====
+      function loadHomeStats() {
+        fetch("posts/index.json")
+          .then(function(r) { return r.json(); })
+          .then(function(posts) {
+            var latest = document.getElementById("latestPosts");
+            if (!latest || latest.dataset.loaded) return;
+            if (!posts.length) return;
+            var html = "";
+            posts.slice(0, 3).forEach(function(p) {
+              html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
+                '<h3>' + p.title + '</h3>' +
+                '<div class="post-meta">' + p.date + '</div>' +
+                '</div>';
+            });
+            latest.innerHTML = html;
+            latest.dataset.loaded = "1";
+          }).catch(function() {});
+      }
+
+      // ===== Event Listeners =====
+      window.addEventListener("hashchange", function() {
+        var hash = location.hash.slice(1);
+        if (hash.startsWith("blog/")) {
+          loadPost(hash.slice(5));
+        } else if (hash) {
+          navigate(hash);
+        } else {
+          navigate("home");
+        }
+      });
+
+      document.body.addEventListener("click", function(e) {
+        var a = e.target.closest("[data-nav]");
+        if (a) {
+          e.preventDefault();
+          navigate(a.getAttribute("data-nav"));
+          history.pushState(null, "", "#" + a.getAttribute("data-nav"));
+        }
+        var postItem = e.target.closest(".post-item");
+        if (postItem) {
+          e.preventDefault();
+          var slug = postItem.getAttribute("data-slug");
+          loadPost(slug);
+          history.pushState(null, "", "#blog/" + slug);
+        }
+      });
+
+      // ===== Init =====
+      var hash = location.hash.slice(1);
+      if (hash.startsWith("blog/")) loadPost(hash.slice(5));
+      else if (hash) navigate(hash);
+      else navigate("home");
+    })();
   </script>
 
 </body>
