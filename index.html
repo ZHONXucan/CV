@@ -333,7 +333,7 @@
       .contact-list li { font-size: 12px; }
     }
 
-    ﻿.page { display: none; }
+    .page { display: none; }
 .page.active { display: block; animation: pageIn 0.35s ease; }
 @keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 .post-item { padding: 20px 0; border-bottom: 1px solid var(--border-light); cursor: pointer; }
@@ -683,6 +683,7 @@
   <button class="back-to-top" id="backToTop" title="回到顶部" aria-label="回到顶部">&uarr;</button>
 
   <script>
+    var POSTS_DATA = [{"slug":"hello-world","title":"我的数据分析学习之路","date":"2026-06-10","excerpt":"从本科计算机科学到法国大数据硕士，分享我的数据分析学习历程和心得。","tags":["数据分析","Python","学习"]}];
     (function() {
       var themeToggle = document.getElementById("themeToggle");
       var navbar = document.getElementById("navbar");
@@ -786,48 +787,52 @@
       function loadBlogList() {
         var container = document.getElementById("blogList");
         if (!container || container.dataset.loaded) return;
-        container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载中...</p>";
-        fetch("posts/index.json")
-          .then(function(r) { return r.json(); })
-          .then(function(posts) {
-            if (!posts.length) { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>暂无文章</p>"; return; }
-            var html = "";
-            posts.forEach(function(p) {
-              var tagsHtml = "";
-              if (p.tags && p.tags.length) {
-                tagsHtml = '<div class="timeline-stack">' + p.tags.map(function(t) { return '<span class="stack-tag">' + t + '</span>'; }).join("") + '</div>';
-              }
-              html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
-                '<h3>' + p.title + '</h3>' +
-                '<div class="post-meta">' + p.date + '</div>' +
-                tagsHtml +
-                (p.excerpt ? '<div class="post-excerpt">' + p.excerpt + '</div>' : '') +
-                '</div>';
-            });
-            container.innerHTML = html;
-            container.dataset.loaded = "1";
-          })
-          .catch(function() { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载失败，请稍后重试</p>"; });
+        var posts = (typeof POSTS_DATA !== "undefined" && POSTS_DATA.length) ? POSTS_DATA : null;
+        if (posts) {
+          renderPosts(container, posts);
+        } else {
+          container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载中...</p>";
+          fetch("posts/index.json")
+            .then(function(r) { return r.json(); })
+            .then(function(data) { renderPosts(container, data); })
+            .catch(function() { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载失败</p>"; });
+        }
+      }
+      function renderPosts(container, posts) {
+        if (!posts.length) { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>暂无文章</p>"; return; }
+        var html = "";
+        posts.forEach(function(p) {
+          var tagsHtml = "";
+          if (p.tags && p.tags.length) {
+            tagsHtml = '<div class="timeline-stack">' + p.tags.map(function(t) { return '<span class="stack-tag">' + t + '</span>'; }).join("") + '</div>';
+          }
+          html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
+            '<h3>' + p.title + '</h3>' +
+            '<div class="post-meta">' + p.date + '</div>' +
+            tagsHtml +
+            (p.excerpt ? '<div class="post-excerpt">' + p.excerpt + '</div>' : '') +
+            '</div>';
+        });
+        container.innerHTML = html;
+        container.dataset.loaded = "1";
       }
 
       // ===== Home Stats =====
       function loadHomeStats() {
-        fetch("posts/index.json")
-          .then(function(r) { return r.json(); })
-          .then(function(posts) {
-            var latest = document.getElementById("latestPosts");
-            if (!latest || latest.dataset.loaded) return;
-            if (!posts.length) return;
-            var html = "";
-            posts.slice(0, 3).forEach(function(p) {
-              html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
-                '<h3>' + p.title + '</h3>' +
-                '<div class="post-meta">' + p.date + '</div>' +
-                '</div>';
-            });
-            latest.innerHTML = html;
-            latest.dataset.loaded = "1";
-          }).catch(function() {});
+        var latest = document.getElementById("latestPosts");
+        if (!latest || latest.dataset.loaded) return;
+        var posts = (typeof POSTS_DATA !== "undefined" && POSTS_DATA.length) ? POSTS_DATA.slice(0, 3) : [];
+        if (posts.length) {
+          var html = "";
+          posts.forEach(function(p) {
+            html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
+              '<h3>' + p.title + '</h3>' +
+              '<div class="post-meta">' + p.date + '</div>' +
+              '</div>';
+          });
+          latest.innerHTML = html;
+          latest.dataset.loaded = "1";
+        }
       }
 
       // ===== Event Listeners =====
