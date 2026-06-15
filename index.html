@@ -131,7 +131,7 @@
     a:hover { border-bottom-color: var(--accent); }
 
     /* ===== Hero ===== */
-    #hero { padding: 140px 0 80px; position: relative; }
+    #home { padding: 140px 0 80px; position: relative; }
     .hero-accent-bar {
       position: absolute; left: 0; top: 160px; width: 4px; height: 80px;
       background: var(--accent); border-radius: 0 4px 4px 0;
@@ -247,7 +247,7 @@
       .nav-links a { font-size: 12px; }
 
       /* Hero */
-      #hero { padding: 110px 0 48px; }
+      #home { padding: 110px 0 48px; }
       .hero-accent-bar { display: none; }
       .hero-row { flex-direction: column; gap: 20px; }
       .hero-avatar { width: 100px; }
@@ -300,7 +300,7 @@
       .btn-theme { font-size: 12px; padding: 3px 6px; }
 
       /* Hero */
-      #hero { padding: 96px 0 40px; }
+      #home { padding: 96px 0 40px; }
       .hero-row { gap: 16px; }
       .hero-avatar { width: 80px; }
       .hero-name { font-size: 26px; }
@@ -333,32 +333,12 @@
       .contact-list li { font-size: 12px; }
     }
 
-    .page { display: none; }
-.page.active { display: block; animation: pageIn 0.35s ease; }
-@keyframes pageIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.post-item { padding: 20px 0; border-bottom: 1px solid var(--border-light); cursor: pointer; }
-.post-item:last-child { border-bottom: none; }
-.post-item:hover h3 { color: var(--accent); }
-.post-item h3 { font-size: 17px; margin-bottom: 6px; transition: color 0.2s; color: var(--text); }
-.post-meta { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
-.post-excerpt { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-top: 8px; }
-.project-card { padding: 24px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 20px; transition: border-color 0.2s; }
-.project-card:hover { border-color: var(--accent); }
-.stats-grid { display: flex; gap: 24px; flex-wrap: wrap; margin: 32px 0; }
-.stat-item { text-align: center; }
-.stat-num { font-size: 32px; font-weight: 700; color: var(--accent); }
-.stat-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
-.post-content h1, .post-content h2, .post-content h3 { margin-top: 28px; margin-bottom: 12px; }
-.post-content p { margin-bottom: 14px; line-height: 1.8; font-size: 15px; color: var(--text-secondary); }
-.post-content li { margin-bottom: 6px; color: var(--text-secondary); font-size: 15px; }
-.post-content code { background: var(--accent-light); padding: 2px 6px; border-radius: 4px; font-size: 13px; }
-.post-content pre { background: var(--card-bg); border:1px solid var(--border); border-radius:8px; padding:16px; overflow-x:auto; margin:16px 0; }
-.post-content pre code { background:none; padding:0; }
-.post-content blockquote { border-left:3px solid var(--accent); padding-left:16px; color:var(--text-muted); margin:16px 0; }
-.post-content a { color:var(--accent); border-bottom:1px solid var(--accent); }
-.giscus { margin-top:48px; }
-.back-link { display:inline-block; margin-bottom:24px; font-size:13px; color:var(--text-muted); text-decoration:none; border:none; }
-.back-link:hover { color:var(--accent); }
+    .project-card {
+      padding: 24px; background: var(--card-bg); border: 1px solid var(--border);
+      border-radius: 10px; margin-bottom: 20px; transition: border-color 0.2s;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .post-item:hover h3 { color: var(--accent); }
 
     /* ===== Print ===== */
     @media print {
@@ -366,7 +346,7 @@
       body { background: #fff; color: #000; font-size: 13px; }
       .fade-in { opacity: 1 !important; transform: none !important; }
       section { padding: 28px 0; break-inside: avoid; }
-      #hero { padding: 20px 0 28px; }
+      #home { padding: 20px 0 28px; }
       .hero-accent-bar { background: #000; }
       .skill-tag, .stack-tag { border-color: #999; color: #000; background: none; }
       a { color: #000; border-bottom: none; }
@@ -381,13 +361,13 @@
   <!-- ========== Sticky Nav ========== -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#home" class="nav-brand" data-nav="home">钟旭灿</a>
+      <a href="#home" class="nav-brand">钟旭灿</a>
       <ul class="nav-links">
-        <li><a href="#home" data-nav="home">首页</a></li>
-        <li><a href="#cv" data-nav="cv">简历</a></li>
-        <li><a href="#projects" data-nav="projects">项目</a></li>
-        <li><a href="#blog" data-nav="blog">博客</a></li>
-        <li><a href="#contact" data-nav="contact">联系</a></li>
+        <li><a href="#home">首页</a></li>
+        <li><a href="#cv">简历</a></li>
+        <li><a href="#projects">项目</a></li>
+        <li><a href="#blog">博客</a></li>
+        <li><a href="#contact">联系</a></li>
       </ul>
       <div class="nav-right">
         <button class="btn-theme" id="themeToggle" title="切换暗色模式" aria-label="切换暗色模式">
@@ -397,11 +377,9 @@
       </div>
     </div>
   </nav>
-  <!-- Page: Home -->
-  <section id="page-home" class="page active">
 
-  <!-- ========== Hero ========== -->
-  <header id="hero" class="container">
+  <!-- ========== Home ========== -->
+  <header id="home" class="container">
     <div class="hero-accent-bar"></div>
     <div class="hero-row">
       <div class="hero-text">
@@ -416,43 +394,8 @@
     </div>
   </header>
 
-    <!-- Stats -->
-    <section class="container">
-      <div class="stats-grid fade-in">
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">项目作品</div></div>
-        <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">年高等教育</div></div>
-        <div class="stat-item"><div class="stat-num">16</div><div class="stat-label">技术技能</div></div>
-        <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">语言 (中/英/法)</div></div>
-      </div>
-    </section>
-
-    <!-- Latest Blog Preview -->
-    <section class="container">
-      <h2 class="fade-in">最新文章</h2>
-      <div class="fade-in" id="latestPosts">
-        <p style="color:var(--text-muted);font-size:14px">加载中...</p>
-      </div>
-      <p style="margin-top:16px">
-        <a href="#blog" data-nav="blog" style="font-size:14px">查看全部文章 →</a>
-      </p>
-    </section>
-
-    <!-- Quick Links -->
-    <section class="container">
-      <h2 class="fade-in">快速导航</h2>
-      <div class="skills-grid fade-in">
-        <a href="#cv" data-nav="cv" class="skill-tag" style="text-decoration:none;border:none">📋 查看简历</a>
-        <a href="#projects" data-nav="projects" class="skill-tag" style="text-decoration:none;border:none">🚀 项目作品</a>
-        <a href="#blog" data-nav="blog" class="skill-tag" style="text-decoration:none;border:none">📝 博客</a>
-        <a href="钟旭灿-简历.pdf" class="skill-tag" style="text-decoration:none;border:none">📄 下载简历</a>
-      </div>
-    </section>
-  </section>
-  <!-- Page: CV -->
-  <section id="page-cv" class="page">
-
-  <!-- ========== About ========== -->
-  <section class="container" id="about">
+  <!-- ========== CV: About ========== -->
+  <section class="container" id="cv">
     <h2 class="fade-in">关于我</h2>
     <div class="about-text fade-in">
       <p>
@@ -559,6 +502,38 @@
     </div>
   </section>
 
+  <!-- ========== Projects ========== -->
+  <section class="container" id="projects">
+    <h2 class="fade-in">项目作品</h2>
+    <div class="fade-in">
+      <div class="project-card">
+        <p class="timeline-period">2026.04 - 2026.06</p>
+        <h3>智能物流数据分析平台</h3>
+        <div class="timeline-stack"><span class="stack-tag">Python</span><span class="stack-tag">RFID</span><span class="stack-tag">Flask</span><span class="stack-tag">Oracle</span></div>
+        <p class="timeline-desc">基于 RFID 物流数据构建智能分析平台，实现数据处理、预测分析与多模型对比。使用 Python（Pandas, NumPy, Scikit-learn）完成数据清洗与机器学习建模，Flask + Bootstrap 搭建 Web 平台，Oracle Database 管理数据。</p>
+      </div>
+      <div class="project-card">
+        <p class="timeline-period">2025.12 - 2026.02</p>
+        <h3>商业智能（BI）数据分析 · 课程项目</h3>
+        <div class="timeline-stack"><span class="stack-tag">Power BI</span><span class="stack-tag">Power Query</span><span class="stack-tag">Talend</span></div>
+        <p class="timeline-desc">使用 Power BI 和 Power Query 完成多源数据集成清洗与建模，Talend Open Studio 设计 ETL 流程，开发交互式 BI Dashboard 展示关键业务指标。</p>
+      </div>
+      <div class="project-card">
+        <p class="timeline-period">2024.01 - 2024.03</p>
+        <h3>电商用户行为数据分析 · 个人项目</h3>
+        <div class="timeline-stack"><span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">MySQL</span><span class="stack-tag">Matplotlib</span></div>
+        <p class="timeline-desc">清洗模拟电商数据集，使用 SQL 查询复购率、客单价等核心指标，Matplotlib 可视化月度 GMV 趋势与热销品类分布，产出数据分析报告及商品组合营销建议。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== Blog ========== -->
+  <section class="container" id="blog">
+    <h2 class="fade-in">博客</h2>
+    <p style="color:var(--text-muted);font-size:14px;margin-bottom:24px">技术分享 · 项目复盘 · 学习笔记</p>
+    <div class="fade-in" id="blogList"><p style="color:var(--text-muted);font-size:14px">加载中...</p></div>
+  </section>
+
   <!-- ========== Contact ========== -->
   <section class="container" id="contact">
     <h2 class="fade-in">联系我</h2>
@@ -579,291 +554,105 @@
     <div class="container">
       &copy; 2026 钟旭灿 · 保留所有权利
     </div>
-  
-
-    <!-- Contact info inside CV -->
-    <section class="container" id="contact-cv">
-      <h2 class="fade-in">联系我</h2>
-      <ul class="contact-list fade-in">
-        <li>📧 <a href="mailto:2659089223@qq.com">2659089223@qq.com</a></li>
-        <li>📱 <a href="tel:18428106393">18428106393</a></li>
-        <li>💻 <a href="https://github.com/ZHONXucan" target="_blank" rel="noopener">GitHub</a></li>
-      </ul>
-      <p class="fade-in">
-        <a href="钟旭灿-简历.pdf" class="btn-download" download>
-          <span>📄</span> 下载简历 PDF
-        </a>
-      </p>
-    </section>
-  </section>
-  <!-- Page: Projects -->
-  <section id="page-projects" class="page">
-    <header class="container" style="padding:140px 0 40px">
-      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">项目作品</h1>
-      <p style="color:var(--text-muted);margin-top:8px">数据分析 · 商业智能 · 机器学习</p>
-    </header>
-
-    <section class="container">
-      <div class="project-card fade-in">
-        <h3>智能物流数据分析平台</h3>
-        <p class="timeline-period">2026.04 — 2026.06 · 项目开发</p>
-        <div class="timeline-stack">
-          <span class="stack-tag">Python</span><span class="stack-tag">RFID</span><span class="stack-tag">Flask</span><span class="stack-tag">Oracle</span><span class="stack-tag">Scikit-learn</span><span class="stack-tag">Bootstrap</span>
-        </div>
-        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
-          基于 RFID 物流数据构建智能分析平台，实现数据处理、预测分析与多模型对比。使用 Python（Pandas, NumPy, Scikit-learn）完成数据清洗与机器学习建模（Random Forest、KNN 等），Flask + Bootstrap 搭建 Web 平台，Oracle Database 管理数据存储与查询。
-        </p>
-      </div>
-
-      <div class="project-card fade-in">
-        <h3>商业智能（BI）数据分析</h3>
-        <p class="timeline-period">2025.12 — 2026.02 · 课程项目</p>
-        <div class="timeline-stack">
-          <span class="stack-tag">Power BI</span><span class="stack-tag">Power Query</span><span class="stack-tag">Talend</span><span class="stack-tag">ETL</span>
-        </div>
-        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
-          使用 Power BI 和 Power Query 对多源数据进行清洗、转换及预处理，建立多表关联模型（维度表与事实表）。基于 Talend Open Studio 设计 ETL 流程实现数据自动化处理，开发交互式 BI Dashboard 展示关键业务指标。
-        </p>
-      </div>
-
-      <div class="project-card fade-in">
-        <h3>电商用户行为数据分析</h3>
-        <p class="timeline-period">2024.01 — 2024.03 · 个人项目</p>
-        <div class="timeline-stack">
-          <span class="stack-tag">Python</span><span class="stack-tag">SQL</span><span class="stack-tag">MySQL</span><span class="stack-tag">Matplotlib</span><span class="stack-tag">Pandas</span>
-        </div>
-        <p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:12px">
-          清洗模拟电商数据集，使用 SQL 查询复购率、客单价等核心指标。通过 Matplotlib 制作可视化图表（月度 GMV 趋势、热销品类分布），产出数据分析报告并提出了商品组合营销建议。
-        </p>
-      </div>
-    </section>
-  </section>
-  <!-- Page: Blog -->
-  <section id="page-blog" class="page">
-    <header class="container" style="padding:140px 0 40px">
-      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">博客</h1>
-      <p style="color:var(--text-muted);margin-top:8px">技术分享 · 项目复盘 · 学习笔记</p>
-    </header>
-    <section class="container">
-      <div id="blogList" class="fade-in">
-        <p style="color:var(--text-muted);font-size:14px">加载中...</p>
-      </div>
-    </section>
-  </section>
-  <!-- Page: Blog Post -->
-  <section id="page-post" class="page">
-    <section class="container" style="padding-top:120px">
-      <a href="#blog" data-nav="blog" class="back-link">← 返回博客</a>
-      <div id="postContent" class="post-content"></div>
-      <div class="giscus" id="giscusContainer"></div>
-    </section>
-  </section>
-  <!-- Page: Contact -->
-  <section id="page-contact" class="page">
-    <header class="container" style="padding:140px 0 40px">
-      <h1 style="font-size:32px;font-weight:700;letter-spacing:-0.02em">联系我</h1>
-      <p style="color:var(--text-muted);margin-top:8px">期待与您交流</p>
-    </header>
-    <section class="container">
-      <ul class="contact-list fade-in">
-        <li>📧 <a href="mailto:2659089223@qq.com">2659089223@qq.com</a></li>
-        <li>📱 <a href="tel:18428106393">18428106393</a></li>
-        <li>💻 <a href="https://github.com/ZHONXucan" target="_blank" rel="noopener">GitHub</a></li>
-      </ul>
-      <p class="fade-in" style="margin-top:8px">
-        <a href="钟旭灿-简历.pdf" class="btn-download" download>
-          <span>📄</span> 下载简历 PDF
-        </a>
-      </p>
-    </section>
-  </section>
-</footer>
+  </footer>
 
   <!-- Back to Top -->
   <button class="back-to-top" id="backToTop" title="回到顶部" aria-label="回到顶部">&uarr;</button>
 
   <script>
-    var POSTS_DATA = [{"slug":"hello-world","title":"我的数据分析学习之路","date":"2026-06-10","excerpt":"从本科计算机科学到法国大数据硕士，分享我的数据分析学习历程和心得。","tags":["数据分析","Python","学习"]}];
-    (function() {
-      var themeToggle = document.getElementById("themeToggle");
-      var navbar = document.getElementById("navbar");
-      var backToTop = document.getElementById("backToTop");
+    // ===== 暗色模式 =====
+    const themeToggle = document.getElementById("themeToggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-      // ===== Dark Mode =====
-      function setDark(enable) {
-        document.body.classList.toggle("dark", enable);
-        localStorage.setItem("theme", enable ? "dark" : "light");
-      }
-      var saved = localStorage.getItem("theme");
-      if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-        setDark(true);
-      }
-      if (themeToggle) {
-        themeToggle.addEventListener("click", function() {
-          setDark(!document.body.classList.contains("dark"));
-        });
-      }
+    function setDark(enable) {
+      document.body.classList.toggle("dark", enable);
+      localStorage.setItem("theme", enable ? "dark" : "light");
+    }
 
-      // ===== Sticky Nav =====
-      var sentinel = document.createElement("div");
-      sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;pointer-events:none;";
-      document.body.prepend(sentinel);
-      new IntersectionObserver(function(_a) {
-        navbar.classList.toggle("scrolled", !_a[0].isIntersecting);
-      }, { threshold: 0 }).observe(sentinel);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark" || (!savedTheme && prefersDark.matches)) {
+      setDark(true);
+    }
 
-      // ===== Fade-in on scroll =====
-      var io = new IntersectionObserver(function(entries) {
-        entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add("visible"); });
-      }, { threshold: 0.12 });
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => setDark(!document.body.classList.contains("dark")));
+    }
 
-      // ===== Back to Top =====
-      window.addEventListener("scroll", function() {
-        backToTop.classList.toggle("visible", window.scrollY > 500);
+    // ===== Sticky Nav Shadow =====
+    const navbar = document.getElementById("navbar");
+    const sentinel = document.createElement("div");
+    sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;pointer-events:none;";
+    document.body.prepend(sentinel);
+    new IntersectionObserver(
+      ([e]) => navbar.classList.toggle("scrolled", !e.isIntersecting),
+      { threshold: 0 }
+    ).observe(sentinel);
+
+    // ===== Fade-in Animation =====
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".fade-in").forEach(el => io.observe(el));
+
+    // ===== Back to Top =====
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      backToTop.classList.toggle("visible", window.scrollY > 500);
+    });
+    backToTop.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+    // ===== Active Nav Link =====
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute("id");
       });
-      backToTop.addEventListener("click", function() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      navLinks.forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === "#" + current);
       });
-
-      // ===== Hash Router =====
-      var pages = document.querySelectorAll(".page");
-      var navLinks = document.querySelectorAll("[data-nav]");
-      var currentPage = "home";
-
-      function navigate(page) {
-        currentPage = page;
-        pages.forEach(function(p) { p.classList.remove("active"); });
-        var target = document.getElementById("page-" + page);
-        if (target) { target.classList.add("active"); window.scrollTo({ top: 0, behavior: "smooth" }); }
-        navLinks.forEach(function(a) {
-          a.classList.toggle("active", a.getAttribute("data-nav") === page);
-        });
-        // Re-observe fade-in elements
-        setTimeout(function() {
-          document.querySelectorAll(".page.active .fade-in").forEach(function(el) { io.observe(el); });
-        }, 50);
-        if (page === "blog") loadBlogList();
-        if (page === "home") loadHomeStats();
-      }
-
-      // ===== Blog Post =====
-      function loadPost(slug) {
-        navigate("post");
-        var container = document.getElementById("postContent");
-        if (!container) return;
-        container.innerHTML = "<p style='color:var(--text-muted)'>加载中...</p>";
-        fetch("posts/" + slug + ".html")
-          .then(function(r) { if (!r.ok) throw new Error("404"); return r.text(); })
-          .then(function(html) {
-            container.innerHTML = html;
-            loadGiscus();
-          })
-          .catch(function() { container.innerHTML = "<p style='color:var(--text-muted)'>文章加载失败</p>"; });
-      }
-
-      function loadGiscus() {
-        var gc = document.getElementById("giscusContainer");
-        if (!gc || gc.hasChildNodes()) return;
-        var s = document.createElement("script");
-        s.src = "https://giscus.app/client.js";
-        s.setAttribute("data-repo", "ZHONXucan/CV");
-        s.setAttribute("data-repo-id", "R_kgDOS5kNVg");
-        s.setAttribute("data-category", "Announcements");
-        s.setAttribute("data-category-id", "DIC_kwDOS5kNVs4C_HOR");
-        s.setAttribute("data-mapping", "pathname");
-        s.setAttribute("data-strict", "0");
-        s.setAttribute("data-reactions-enabled", "1");
-        s.setAttribute("data-emit-metadata", "1");
-        s.setAttribute("data-input-position", "top");
-        s.setAttribute("data-theme", document.body.classList.contains("dark") ? "dark_dimmed" : "light");
-        s.setAttribute("data-lang", "zh-CN");
-        s.setAttribute("data-loading", "lazy");
-        s.setAttribute("crossorigin", "anonymous");
-        s.async = true;
-        gc.appendChild(s);
-      }
-
-      // ===== Blog List =====
-      function loadBlogList() {
-        var container = document.getElementById("blogList");
-        if (!container || container.dataset.loaded) return;
-        var posts = (typeof POSTS_DATA !== "undefined" && POSTS_DATA.length) ? POSTS_DATA : null;
-        if (posts) {
-          renderPosts(container, posts);
-        } else {
-          container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载中...</p>";
-          fetch("posts/index.json")
-            .then(function(r) { return r.json(); })
-            .then(function(data) { renderPosts(container, data); })
-            .catch(function() { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>加载失败</p>"; });
-        }
-      }
-      function renderPosts(container, posts) {
-        if (!posts.length) { container.innerHTML = "<p style='color:var(--text-muted);font-size:14px'>暂无文章</p>"; return; }
-        var html = "";
-        posts.forEach(function(p) {
-          var tagsHtml = "";
-          if (p.tags && p.tags.length) {
-            tagsHtml = '<div class="timeline-stack">' + p.tags.map(function(t) { return '<span class="stack-tag">' + t + '</span>'; }).join("") + '</div>';
-          }
-          html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
-            '<h3>' + p.title + '</h3>' +
-            '<div class="post-meta">' + p.date + '</div>' +
-            tagsHtml +
-            (p.excerpt ? '<div class="post-excerpt">' + p.excerpt + '</div>' : '') +
-            '</div>';
-        });
-        container.innerHTML = html;
-        container.dataset.loaded = "1";
-      }
-
-      // ===== Home Stats =====
-      function loadHomeStats() {
-        var latest = document.getElementById("latestPosts");
-        if (!latest || latest.dataset.loaded) return;
-        var posts = (typeof POSTS_DATA !== "undefined" && POSTS_DATA.length) ? POSTS_DATA.slice(0, 3) : [];
-        if (posts.length) {
-          var html = "";
-          posts.forEach(function(p) {
-            html += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer">' +
-              '<h3>' + p.title + '</h3>' +
-              '<div class="post-meta">' + p.date + '</div>' +
-              '</div>';
-          });
-          latest.innerHTML = html;
-          latest.dataset.loaded = "1";
-        }
-      }
-
-      // ===== Event Listeners =====
-      window.addEventListener("hashchange", function() {
-        var hash = location.hash.slice(1);
-        if (hash.startsWith("blog/")) {
-          loadPost(hash.slice(5));
-        } else if (hash) {
-          navigate(hash);
-        } else {
-          navigate("home");
-        }
+    });
+    // ===== Blog =====
+    var BLOG_DATA = [{"slug":"hello-world","title":"我的数据分析学习之路","date":"2026-06-10","excerpt":"从本科计算机科学到法国大数据硕士，分享我的数据分析学习历程和心得。","tags":["数据分析","Python","学习"]}];
+    var bc = document.getElementById("blogList");
+    if (bc && BLOG_DATA.length) {
+      var h = "";
+      BLOG_DATA.forEach(function(p) {
+        h += "<div class=post-item data-slug=" + p.slug + " style=cursor:pointer;padding:20px 0;border-bottom:1px solid var(--border-light)>" +
+          "<h3 style=font-size:17px;margin-bottom:6px;transition:color .2s>" + p.title + "</h3>" +
+          "<div style=font-size:12px;color:var(--text-muted);margin-bottom:6px>" + p.date + "</div>" +
+          (p.excerpt ? "<p style=font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:8px>" + p.excerpt + "</p>" : "") +
+          "</div>";
       });
+      bc.innerHTML = h;
+    }
+    document.body.addEventListener("click", function(e) {
+      var it = e.target.closest(".post-item");
+      if (it) { window.location.href = "posts/" + it.getAttribute("data-slug") + ".html"; }
+    });
 
-      document.body.addEventListener("click", function(e) {
-        var postItem = e.target.closest(".post-item");
-        if (postItem) {
-          e.preventDefault();
-          var slug = postItem.getAttribute("data-slug");
-          loadPost(slug);
-          history.pushState(null, "", "#blog/" + slug);
-        }
+  
+    // ===== Blog =====
+    var BLOG_DATA = [{"slug":"hello-world","title":"我的数据分析学习之路","date":"2026-06-10","excerpt":"从本科计算机科学到法国大数据硕士，分享我的数据分析学习历程和心得。","tags":["数据分析","Python","学习"]}];
+    var bc = document.getElementById("blogList");
+    if (bc && BLOG_DATA.length) {
+      var hh = "";
+      BLOG_DATA.forEach(function(p) {
+        hh += '<div class="post-item" data-slug="' + p.slug + '" style="cursor:pointer;padding:20px 0;border-bottom:1px solid var(--border-light)">' +
+          '<h3 style="font-size:17px;margin-bottom:6px;transition:color .2s">' + p.title + '</h3>' +
+          '<div style="font-size:12px;color:var(--text-muted);margin-bottom:6px">' + p.date + '</div>' +
+          (p.excerpt ? '<p style="font-size:14px;color:var(--text-secondary);line-height:1.7;margin-top:8px">' + p.excerpt + '</p>' : '') +
+          '</div>';
       });
+      bc.innerHTML = hh;
+    }
+    document.body.addEventListener("click", function(e) {
+      var it = e.target.closest(".post-item");
+      if (it) { window.location.href = "posts/" + it.getAttribute("data-slug") + ".html"; }
+    });
 
-      // ===== Init =====
-      var hash = location.hash.slice(1);
-      if (hash.startsWith("blog/")) loadPost(hash.slice(5));
-      else if (hash) navigate(hash);
-      else navigate("home");
-    })();
-  </script>
+</script>
 
 </body>
 </html>
